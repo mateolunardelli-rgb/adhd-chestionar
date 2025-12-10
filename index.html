@@ -22,11 +22,11 @@ function calculateScore(){
     });
 
     let msg="";
-    if(score<=12) msg="Nivel scăzut de indicii ADHD — trăsături normale, variabile.";
-    else if(score<=24) msg="Nivel moderat — posibil ADHD. O evaluare ar oferi claritate.";
+    if(score<=26) msg="Nivel scăzut de indicii ADHD — trăsături normale, variabile.";
+    else if(score<=36) msg="Nivel moderat — posibil ADHD. O evaluare ar oferi claritate.";
     else msg="Nivel ridicat — ar fi util un consult la psihiatru/psiholog specializat.";
 
-    document.getElementById("result").innerHTML="Scor: "+score+" / 40<br>"+msg;
+    document.getElementById("result").innerHTML="Scor: "+score+" / 45<br>"+msg;
 }
 </script>
 </head>
@@ -107,6 +107,65 @@ function calculateScore(){
 <label for="q8a3"><input id="q8a3" type="radio" name="q8" value="2"> Des</label>
 <label for="q8a4"><input id="q8a4" type="radio" name="q8" value="3"> Foarte des</label>
 </div>
+<!-- Q9 -->
+<div class="q">
+<p>9. Uiți ce făceai acum câteva minute?</p>
+<label for="q9a1"><input id="q9a1" type="radio" name="q9" value="0"> Niciodată</label>
+<label for="q9a2"><input id="q9a2" type="radio" name="q9" value="1"> Uneori</label>
+<label for="q9a3"><input id="q9a3" type="radio" name="q9" value="2"> Des</label>
+<label for="q9a4"><input id="q9a4" type="radio" name="q9" value="3"> Foarte des</label>
+</div>
+<!-- Q10 -->
+<div class="q">
+<p>10. Cheltui bani impulsiv/fără plan?</p>
+<label for="q10a1"><input id="q10a1" type="radio" name="q10" value="0"> Niciodată</label>
+<label for="q10a2"><input id="q10a2" type="radio" name="q10" value="1"> Uneori</label>
+<label for="q10a3"><input id="q10a3" type="radio" name="q10" value="2"> Des</label>
+<label for="q10a4"><input id="q10a4" type="radio" name="q10" value="3"> Foarte des</label>
+</div>
+<!-- Q11 -->
+<div class="q">
+<p>11. Te plictisești rapid de sarcini repetitive?</p>
+<label for="q11a1"><input id="q11a1" type="radio" name="q11" value="0"> Niciodată</label>
+<label for="q11a2"><input id="q11a2" type="radio" name="q11" value="1"> Puțin</label>
+<label for="q11a3"><input id="q11a3" type="radio" name="q11" value="2"> Mult</label>
+<label for="q11a4"><input id="q11a4" type="radio" name="q11" value="3"> Extrem</label>
+</div>
+<!-- Q12 -->
+<div class="q">
+<p>12. Ai dificultăți să rămâi concentrat la citit/film?</p>
+<label for="q12a1"><input id="q12a1" type="radio" name="q12" value="0"> Niciodată</label>
+<label for="q12a2"><input id="q12a2" type="radio" name="q12" value="1"> Puțin</label>
+<label for="q12a3"><input id="q12a3" type="radio" name="q12" value="2"> Mult</label>
+<label for="q12a4"><input id="q12a4" type="radio" name="q12" value="3"> Extrem</label>
+</div>
+<!-- Q13 -->
+<div class="q">
+<p>13. Îți e greu să aștepți rândul la cozi/discuții?</p>
+<label for="q13a1"><input id="q13a1" type="radio" name="q13" value="0"> Niciodată</label>
+<label for="q13a2"><input id="q13a2" type="radio" name="q13" value="1"> Uneori</label>
+<label for="q13a3"><input id="q13a3" type="radio" name="q13" value="2"> Des</label>
+<label for="q13a4"><input id="q13a4" type="radio" name="q13" value="3"> Foarte des</label>
+</div>
+<!-- Q14 -->
+<div class="q">
+<p>14. Te simți vinovat că nu ești „productiv”?
+</p>
+<label for="q14a1"><input id="q14a1" type="radio" name="q14" value="0"> Niciodată</label>
+<label for="q14a2"><input id="q14a2" type="radio" name="q14" value="1"> Uneori</label>
+<label for="q14a3"><input id="q14a3" type="radio" name="q14" value="2"> Des</label>
+<label for="q14a4"><input id="q14a4" type="radio" name="q14" value="3"> Foarte des</label>
+</div>
+<!-- Q15 -->
+<div class="q">
+<p>15. Relațiile cu oamenii au de suferit din impulsivitate?
+</p>
+<label for="q15a1"><input id="q15a1" type="radio" name="q15" value="0"> Niciodată</label>
+<label for="q15a2"><input id="q15a2" type="radio" name="q15" value="1"> Uneori</label>
+<label for="q15a3"><input id="q15a3" type="radio" name="q15" value="2"> Des</label>
+<label for="q15a4"><input id="q15a4" type="radio" name="q15" value="3"> Foarte des</label>
+</div>
+
 
 <button type="button" onclick="calculateScore()">Calculează scorul</button>
 <p id="result"></p>
@@ -114,4 +173,3 @@ function calculateScore(){
 </form>
 </body>
 </html>
-
