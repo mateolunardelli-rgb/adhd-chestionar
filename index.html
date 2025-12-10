@@ -2,207 +2,116 @@
 <html lang="ro">
 <head>
 <meta charset="UTF-8">
-<title>Chestionar ADHD – Autoevaluare</title>
+<title>Chestionar ADHD – Auto-Screening</title>
 <style>
-    body { font-family: Arial, sans-serif; background:#e8f2ff; margin:0; padding:30px; color:#1f1f1f; }
-    h1 { text-align:center; color:#06408c; margin-bottom:20px; }
-    .box { background:white; max-width:850px; margin:auto; padding:25px; border-radius:10px; box-shadow:0 0 12px rgba(0,0,0,0.15); }
-    .section-title { color:#06408c; font-size:22px; margin-top:30px; margin-bottom:10px; border-left:6px solid #06408c; padding-left:10px; }
-    label { display:block; margin-bottom:8px; }
-    button { display:block; margin:25px auto; padding:12px 25px; background:#06408c; color:white; border:none; border-radius:7px; font-size:17px; cursor:pointer; }
-    button:hover { background:#022c63; }
-    #rezultat { font-size:19px; text-align:center; font-weight:bold; margin-top:25px; }
+    body{font-family:Arial;background:#eef6ff;margin:0;padding:0;}
+    h2{text-align:center;color:#0f387a;}
+    form{max-width:800px;margin:20px auto;background:#fff;padding:25px;border-radius:12px;box-shadow:0 0 12px rgba(0,0,0,0.1);}
+    .q{margin-bottom:25px;}
+    .q p{font-weight:bold;color:#0f387a;}
+    label{display:block;margin:4px 0;cursor:pointer;}
+    button{background:#0f387a;color:white;padding:12px 18px;border:none;border-radius:6px;font-size:16px;cursor:pointer;}
+    #result{margin-top:25px;font-size:20px;font-weight:bold;text-align:center;color:#0f387a;}
 </style>
+
 <script>
-function calculeaza() {
-    let total = 0;
-    document.querySelectorAll("input[type='radio']:checked").forEach(el=> total += Number(el.value));
+function calculateScore(){
+    let score=0;
+    document.querySelectorAll("input[type='radio']:checked").forEach(i=>{
+        score += parseInt(i.value);
+    });
 
-    let mesaj="";
-    if(total <= 15) mesaj="Nivel redus de indicii ADHD – posibil doar trăsături izolate.";
-    else if(total <= 30) mesaj="Nivel moderat – recomandată evaluarea clinică detaliată.";
-    else if(total <= 45) mesaj="Nivel crescut – ADHD este posibil, recomandat consult psihiatric.";
-    else mesaj="Nivel foarte ridicat – semne puternice, consult profesional recomandat.";
+    let msg="";
+    if(score<=12) msg="Nivel scăzut de indicii ADHD — trăsături normale, variabile.";
+    else if(score<=24) msg="Nivel moderat — posibil ADHD. O evaluare ar oferi claritate.";
+    else msg="Nivel ridicat — ar fi util un consult la psihiatru/psiholog specializat.";
 
-    document.getElementById("rezultat").innerHTML="Scor: <b>"+total+"</b>/60<br>"+mesaj;
+    document.getElementById("result").innerHTML="Scor: "+score+" / 40<br>"+msg;
 }
 </script>
 </head>
+
 <body>
 
-<h1>Chestionar ADHD – Auto-Screening</h1>
-
-<div class="box">
+<h2>Chestionar ADHD — Auto-Screening</h2>
 <form>
 
-<!-- ATENȚIE -->
-<div class="section-title">Dificultăți de atenție</div>
-
-<label>1. Îți pierzi atenția în conversații lungi? <br>
-    <input type="radio" name="q1" value="0">Niciodată 
-    <input type="radio" name="q1" value="1">Uneori 
-    <input type="radio" name="q1" value="2">Des 
-    <input type="radio" name="q1" value="3">Foarte des
-</label>
-
-<label>2. Uiți ce făceai acum câteva minute?<br>
-    <input type="radio" name="q2" value="0">Niciodată 
-    <input type="radio" name="q2" value="1">Uneori 
-    <input type="radio" name="q2" value="2">Des 
-    <input type="radio" name="q2" value="3">Foarte des
-</label>
-
-<label>3. Te plictisești rapid de sarcini repetitive?<br>
-    <input type="radio" name="q3" value="0">Nu 
-    <input type="radio" name="q3" value="1">Puțin 
-    <input type="radio" name="q3" value="2">Mult 
-    <input type="radio" name="q3" value="3">Extrem
-</label>
-
-<label>4. Ai dificultăți să rămâi concentrat la citit/film?<br>
-    <input type="radio" name="q4" value="0">Niciodată
-    <input type="radio" name="q4" value="1">Uneori
-    <input type="radio" name="q4" value="2">Des
-    <input type="radio" name="q4" value="3">Foarte des
-</label>
-
-<br>
-
-<!-- ORGANIZARE -->
-<div class="section-title">Organizare & rutină</div>
-
-<label>5. Amâni sarcinile chiar dacă sunt importante?<br>
-    <input type="radio" name="q5" value="0">Nu
-    <input type="radio" name="q5" value="1">Rar
-    <input type="radio" name="q5" value="2">Des
-    <input type="radio" name="q5" value="3">Foarte des
-</label>
-
-<label>6. Îți este greu să îți structurezi programul zilnic?<br>
-    <input type="radio" name="q6" value="0">Nu
-    <input type="radio" name="q6" value="1">Puțin
-    <input type="radio" name="q6" value="2">Mult
-    <input type="radio" name="q6" value="3">Foarte mult
-</label>
-
-<label>7. Ai început multe proiecte dar puține sunt finalizate?<br>
-    <input type="radio" name="q7" value="0">Nu
-    <input type="radio" name="q7" value="1">Uneori
-    <input type="radio" name="q7" value="2">Des
-    <input type="radio" name="q7" value="3">Foarte des
-</label>
-
-<label>8. Îți pierzi des obiectele (chei, telefon, acte)?<br>
-    <input type="radio" name="q8" value="0">Niciodată
-    <input type="radio" name="q8" value="1">Uneori
-    <input type="radio" name="q8" value="2">Des
-    <input type="radio" name="q8" value="3">Foarte des
-</label>
-
-<br>
-
-<!-- IMPULSIVITATE -->
-<div class="section-title">Impulsivitate</div>
-
-<label>9. Spui lucruri fără să te gândești la consecințe?<br>
-    <input type="radio" name="q9" value="0">Nu
-    <input type="radio" name="q9" value="1">Uneori
-    <input type="radio" name="q9" value="2">Des
-    <input type="radio" name="q9" value="3">Foarte des
-</label>
-
-<label>10. Cheltui bani impulsiv/fără plan?<br>
-    <input type="radio" name="q10" value="0">Nu
-    <input type="radio" name="q10" value="1">Ocazional
-    <input type="radio" name="q10" value="2">Des
-    <input type="radio" name="q10" value="3">Foarte des
-</label>
-
-<label>11. Îți e greu să aștepți rândul la cozi/discuții?<br>
-    <input type="radio" name="q11" value="0">Nu
-    <input type="radio" name="q11" value="1">Uneori
-    <input type="radio" name="q11" value="2">Des
-    <input type="radio" name="q11" value="3">Foarte des
-</label>
-
-<label>12. Intervii în vorba altora fără să vrei?<br>
-    <input type="radio" name="q12" value="0">Nu
-    <input type="radio" name="q12" value="1">Uneori
-    <input type="radio" name="q12" value="2">Des
-    <input type="radio" name="q12" value="3">Foarte des
-</label>
-
-<br>
-
-<!-- HIPERACTIVITATE & RESTLESTNESS -->
-<div class="section-title">Agitație mentală/hiperactivitate</div>
-
-<label>13. Simți nevoie constantă de mișcare/stimulare?<br>
-    <input type="radio" name="q13" value="0">Nu
-    <input type="radio" name="q13" value="1">Uneori
-    <input type="radio" name="q13" value="2">Des
-    <input type="radio" name="q13" value="3">Foarte des
-</label>
-
-<label>14. E greu să stai pe loc la ședințe/film?<br>
-    <input type="radio" name="q14" value="0">Nu
-    <input type="radio" name="q14" value="1">Uneori
-    <input type="radio" name="q14" value="2">Des
-    <input type="radio" name="q14" value="3">Foarte des
-</label>
-
-<label>15. Mintea îți sare între idei foarte repede?<br>
-    <input type="radio" name="q15" value="0">Nu
-    <input type="radio" name="q15" value="1">Puțin
-    <input type="radio" name="q15" value="2">Mult
-    <input type="radio" name="q15" value="3">Foarte mult
-</label>
-
-<label>16. Te simți agitat chiar când ești obosit?<br>
-    <input type="radio" name="q16" value="0">Nu
-    <input type="radio" name="q16" value="1">Uneori
-    <input type="radio" name="q16" value="2">Des
-    <input type="radio" name="q16" value="3">Foarte des
-</label>
-
-<br>
-
-<!-- EMOȚIONAL & VIAȚĂ SOCIALĂ -->
-<div class="section-title">Impact emoțional și social</div>
-
-<label>17. Te simți vinovat că nu ești „productiv”? <br>
-    <input type="radio" name="q17" value="0">Nu
-    <input type="radio" name="q17" value="1">Uneori
-    <input type="radio" name="q17" value="2">Des
-    <input type="radio" name="q17" value="3">Foarte des
-</label>
-
-<label>18. Te simți copleșit de sarcini mărunte?<br>
-    <input type="radio" name="q18" value="0">Nu
-    <input type="radio" name="q18" value="1">Uneori
-    <input type="radio" name="q18" value="2">Des
-    <input type="radio" name="q18" value="3">Foarte des
-</label>
-
-<label>19. Relațiile cu oamenii au de suferit din impulsivitate?<br>
-    <input type="radio" name="q19" value="0">Nu
-    <input type="radio" name="q19" value="1">Uneori
-    <input type="radio" name="q19" value="2">Des
-    <input type="radio" name="q19" value="3">Foarte des
-</label>
-
-<label>20. Ai impresia că ai potențial mare, dar blocat?<br>
-    <input type="radio" name="q20" value="0">Nu
-    <input type="radio" name="q20" value="1">Uneori
-    <input type="radio" name="q20" value="2">Des
-    <input type="radio" name="q20" value="3">Foarte des
-</label>
-
-<button type="button" onclick="calculeaza()">Calculează scorul</button>
-</form>
-
-<div id="rezultat"></div>
+<!-- Q1 -->
+<div class="q">
+<p>1. Îmi pierd rapid atenția în conversații.</p>
+<label for="q1a1"><input id="q1a1" type="radio" name="q1" value="0"> Niciodată</label>
+<label for="q1a2"><input id="q1a2" type="radio" name="q1" value="1"> Ocazional</label>
+<label for="q1a3"><input id="q1a3" type="radio" name="q1" value="2"> Des</label>
+<label for="q1a4"><input id="q1a4" type="radio" name="q1" value="3"> Foarte des</label>
 </div>
 
+<!-- Q2 -->
+<div class="q">
+<p>2. Am dificultăți în organizarea sarcinilor.</p>
+<label for="q2a1"><input id="q2a1" type="radio" name="q2" value="0"> Niciodată</label>
+<label for="q2a2"><input id="q2a2" type="radio" name="q2" value="1"> Ocazional</label>
+<label for="q2a3"><input id="q2a3" type="radio" name="q2" value="2"> Des</label>
+<label for="q2a4"><input id="q2a4" type="radio" name="q2" value="3"> Foarte des</label>
+</div>
+
+<!-- Q3 -->
+<div class="q">
+<p>3. Am multe proiecte începute dar neterminate.</p>
+<label for="q3a1"><input id="q3a1" type="radio" name="q3" value="0"> Niciodată</label>
+<label for="q3a2"><input id="q3a2" type="radio" name="q3" value="1"> Ocazional</label>
+<label for="q3a3"><input id="q3a3" type="radio" name="q3" value="2"> Des</label>
+<label for="q3a4"><input id="q3a4" type="radio" name="q3" value="3"> Foarte des</label>
+</div>
+
+<!-- Q4 -->
+<div class="q">
+<p>4. Uit frecvent unde pun obiecte (telefon, chei).</p>
+<label for="q4a1"><input id="q4a1" type="radio" name="q4" value="0"> Niciodată</label>
+<label for="q4a2"><input id="q4a2" type="radio" name="q4" value="1"> Ocazional</label>
+<label for="q4a3"><input id="q4a3" type="radio" name="q4" value="2"> Des</label>
+<label for="q4a4"><input id="q4a4" type="radio" name="q4" value="3"> Foarte des</label>
+</div>
+
+<!-- Q5 -->
+<div class="q">
+<p>5. Mă simt copleșit de sarcini simple.</p>
+<label for="q5a1"><input id="q5a1" type="radio" name="q5" value="0"> Niciodată</label>
+<label for="q5a2"><input id="q5a2" type="radio" name="q5" value="1"> Ocazional</label>
+<label for="q5a3"><input id="q5a3" type="radio" name="q5" value="2"> Des</label>
+<label for="q5a4"><input id="q5a4" type="radio" name="q5" value="3"> Foarte des</label>
+</div>
+
+<!-- Q6 -->
+<div class="q">
+<p>6. Am impulsivitate în discuții sau decizii.</p>
+<label for="q6a1"><input id="q6a1" type="radio" name="q6" value="0"> Niciodată</label>
+<label for="q6a2"><input id="q6a2" type="radio" name="q6" value="1"> Ocazional</label>
+<label for="q6a3"><input id="q6a3" type="radio" name="q6" value="2"> Des</label>
+<label for="q6a4"><input id="q6a4" type="radio" name="q6" value="3"> Foarte des</label>
+</div>
+
+<!-- Q7 -->
+<div class="q">
+<p>7. Simt nevoia constantă de stimulare.</p>
+<label for="q7a1"><input id="q7a1" type="radio" name="q7" value="0"> Niciodată</label>
+<label for="q7a2"><input id="q7a2" type="radio" name="q7" value="1"> Ocazional</label>
+<label for="q7a3"><input id="q7a3" type="radio" name="q7" value="2"> Des</label>
+<label for="q7a4"><input id="q7a4" type="radio" name="q7" value="3"> Foarte des</label>
+</div>
+
+<!-- Q8 -->
+<div class="q">
+<p>8. Mă pierd în detalii și nu finalizez task-ul.</p>
+<label for="q8a1"><input id="q8a1" type="radio" name="q8" value="0"> Niciodată</label>
+<label for="q8a2"><input id="q8a2" type="radio" name="q8" value="1"> Ocazional</label>
+<label for="q8a3"><input id="q8a3" type="radio" name="q8" value="2"> Des</label>
+<label for="q8a4"><input id="q8a4" type="radio" name="q8" value="3"> Foarte des</label>
+</div>
+
+<button type="button" onclick="calculateScore()">Calculează scorul</button>
+<p id="result"></p>
+
+</form>
 </body>
 </html>
+
